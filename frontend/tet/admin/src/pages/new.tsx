@@ -24,7 +24,7 @@ const NewPostingPage: NextPage = () => {
 
   if (showPreview) {
     return (
-      <PreviewWrapper>
+      <PreviewWrapper allowPublish={false}>
         <PostingContainer posting={tetPosting} />
       </PreviewWrapper>
     );
