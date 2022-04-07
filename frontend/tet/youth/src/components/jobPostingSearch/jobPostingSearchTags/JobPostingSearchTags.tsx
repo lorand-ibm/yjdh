@@ -24,15 +24,18 @@ const PostingSearchTags: React.FC<Props> = ({ initParams, onRemoveFilter, workMe
   };
 
   return (
-    <$Tags>
+    <$Tags id="searchTags">
       {initParams?.text && (
         <li>
-          <Tag onDelete={() => onRemoveFilter('text')}>{initParams.text}</Tag>
+          <Tag className="searchTag" onDelete={() => onRemoveFilter('text')}>
+            {initParams.text}
+          </Tag>
         </li>
       )}
       {initParams?.keyword && (
         <li>
           <Tag
+            className="searchTag"
             onDelete={() => onRemoveFilter('keyword')}
             theme={{
               '--tag-background': `var(--color-engel-medium-light)`,
@@ -47,6 +50,7 @@ const PostingSearchTags: React.FC<Props> = ({ initParams, onRemoveFilter, workMe
       {dateText.length > 0 && (
         <li>
           <Tag
+            className="searchTag"
             onDelete={() => onRemoveFilter(['start', 'end'])}
             theme={{
               '--tag-background': `var(--color-engel-medium-light)`,
@@ -60,7 +64,9 @@ const PostingSearchTags: React.FC<Props> = ({ initParams, onRemoveFilter, workMe
       )}
       {Object.keys(initParams).length > 0 && (
         <li>
-          <$RemoveButton onClick={() => onRemoveFilter('all')}>{t('common:filters.clearFilters')}</$RemoveButton>
+          <$RemoveButton id="removeAllSearches" onClick={() => onRemoveFilter('all')}>
+            {t('common:filters.clearFilters')}
+          </$RemoveButton>
         </li>
       )}
     </$Tags>

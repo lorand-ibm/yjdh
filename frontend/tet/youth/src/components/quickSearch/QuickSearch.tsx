@@ -47,6 +47,7 @@ const QuickSearch = () => {
               value={searchText}
               id="searchText"
               placeholder={t('common:filters.searchPlaceholder')}
+              data-testid="quickSearchField"
             ></TextInput>
           </$SearchField>
           <$DateField>
